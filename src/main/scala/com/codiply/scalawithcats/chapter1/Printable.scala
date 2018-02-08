@@ -1,5 +1,7 @@
 package com.codiply.scalawithcats.chapter1
 
+import cats.syntax.option._
+
 trait Printable[A] {
   def format(value: A): String
 }
@@ -58,6 +60,10 @@ object PrintableMain {
     str.print
     cat.print
 
-    //Printable.print(Some(cat))
+    Printable.print(cat.some)
+    Printable.print(none[Cat])
+
+    cat.some.print
+    none[Cat].print
   }
 }
