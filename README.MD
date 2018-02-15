@@ -1,5 +1,7 @@
 ## Scala with Cats - Exercises
 
+Solutions for the exercises of [Scala with Cats Book](https://underscore.io/books/scala-with-cats/)
+
 ### Run a main
 
 For exercises where the code is tested with a main, run
