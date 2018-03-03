@@ -5,22 +5,7 @@ import org.scalatest.{FlatSpec, Matchers}
 class PrintableSpec extends FlatSpec with Matchers {
   behavior of "Printable"
 
-  implicit val booleanPrintable: Printable[Boolean] =
-    new Printable[Boolean] {
-      def format(value: Boolean): String =
-        if(value) "yes" else "no"
-    }
-
-  implicit val stringPrintable: Printable[String] =
-    new Printable[String] {
-      def format(value: String): String =
-        "\"" + value + "\""
-    }
-
-  implicit def boxPrintble[A](implicit printable: Printable[A]): Printable[Box[A]] =
-    printable.contramap(_.value)
-
-  final case class Box[A](value: A)
+  import com.codiply.scalawithcats.chapter3.PrintableInstances._
 
   it should "format a Box of a string" in {
     val box = Box("some string")
